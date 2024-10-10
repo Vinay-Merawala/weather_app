@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
+import 'package:weather_app/widgets/geolocator.dart';
 import 'package:weather_app/widgets/weather_app.dart';
 
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.yellow,
       ),
-      home: const WeatherApp(title: 'Weather App'),
+      home: const LocationWidget(),
     );
   }
 }
