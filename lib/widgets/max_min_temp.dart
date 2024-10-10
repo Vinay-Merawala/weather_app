@@ -24,60 +24,121 @@ class _MaxMinTempState extends State<MaxMinTemp> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(
-            children: [
-              Container(
-                width: 150,
-                margin: const EdgeInsets.only(top: 20, right: 5),
-                decoration: WeatherAppStyle.dateTitleTile,
-                child: Center(
-                  child: Text(
-                    "Max temp",
-                    style: WeatherAppStyle.maxMinTitle,
+    if(widget.width > 800){
+      return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [
+                Container(
+                  height: widget.height/10,
+                  width: (widget.width/2) - (widget.width * 0.2),
+                  margin: const EdgeInsets.only(top: 20, right: 5),
+                  decoration: WeatherAppStyle.dateTitleTile,
+                  child: Center(
+                    child: Text(
+                      "Max temp",
+                      style: WeatherAppStyle.maxMinTitleLarge,
+                    ),
                   ),
                 ),
-              ),
 
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 15),
-                child: Center(
-                  child: Text(
-                    max,
-                    style: WeatherAppStyle.maxMinTemp,
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 15),
+                  child: Center(
+                    child: Text(
+                      max,
+                      style: WeatherAppStyle.maxMinTempLarge,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Column(
+              children: [
+                Container(
+                  height: widget.height/10,
+                  width: (widget.width/2) - (widget.width * 0.2),
+                  margin: const EdgeInsets.only(top: 20, right: 5),
+                  decoration: WeatherAppStyle.dateTitleTile,
+                  child: Center(
+                    child: Text(
+                      "Min temp",
+                      style: WeatherAppStyle.maxMinTitleLarge,
+                    ),
                   ),
                 ),
-              )
-            ],
-          ),
-          Column(
-            children: [
-              Container(
-                width: 150,
-                margin: const EdgeInsets.only(top: 20, right: 5),
-                decoration: WeatherAppStyle.dateTitleTile,
-                child: Center(
-                  child: Text(
-                    "Min temp",
-                    style: WeatherAppStyle.maxMinTitle,
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 15),
+                  child: Center(
+                    child: Text(
+                      min,
+                      style: WeatherAppStyle.maxMinTempLarge,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ]
+      );
+    }
+    else{
+      return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [
+                Container(
+                  height: widget.height * 0.05,
+                  width: (widget.width/2 * 0.80) ,
+                  margin: const EdgeInsets.only(top: 20, right: 5),
+                  decoration: WeatherAppStyle.dateTitleTile,
+                  child: Center(
+                    child: Text(
+                      "Max temp",
+                      style: WeatherAppStyle.maxMinTitleSmall,
+                    ),
                   ),
                 ),
-              ),
 
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 15),
-                child: Center(
-                  child: Text(
-                    min,
-                    style: WeatherAppStyle.maxMinTemp,
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 15),
+                  child: Center(
+                    child: Text(
+                      max,
+                      style: WeatherAppStyle.maxMinTempSmall,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Column(
+              children: [
+                Container(
+                  height: widget.height * 0.05,
+                  width: (widget.width/2 * 0.80),
+                  margin: const EdgeInsets.only(top: 20, right: 5),
+                  decoration: WeatherAppStyle.dateTitleTile,
+                  child: Center(
+                    child: Text(
+                      "Min temp",
+                      style: WeatherAppStyle.maxMinTitleSmall,
+                    ),
                   ),
                 ),
-              )
-            ],
-          ),
-        ]
-    );
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 15),
+                  child: Center(
+                    child: Text(
+                      min,
+                      style: WeatherAppStyle.maxMinTempSmall,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ]
+      );
+    }
   }
 }

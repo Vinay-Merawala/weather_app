@@ -38,32 +38,47 @@ class WeatherAppStyle{
   //Weather Condition Styles
   static TextStyle weatherCondn = TextStyle(
     color: WeatherAppStyle.title,
-    height: 1.2,
     fontFamily: "SF-Compact",
-    fontSize: 20,
+    fontSize: 32,
   );
 
   //Temp Style
-  static TextStyle temp = TextStyle(
+  static TextStyle tempLarge = TextStyle(
     color: WeatherAppStyle.tempColor,
     fontFamily: "SF-Compact",
-    fontSize: 150,
+    fontSize: 125,
+  );
+
+  static TextStyle tempSmall = TextStyle(
+    color: WeatherAppStyle.tempColor,
+    fontFamily: "SF-Compact",
+    fontSize: 155,
   );
 
   //Max Min Styles
-  static TextStyle maxMinTitle = TextStyle(
-    height: 1.5,
+  static TextStyle maxMinTitleLarge = TextStyle(
     fontFamily: "Ledger",
-    fontSize: 23,
+    fontSize: 30,
     color: WeatherAppStyle.conTextColor,
   );
 
-  static TextStyle maxMinTemp = TextStyle(
-    color: WeatherAppStyle.tempColor,
-    fontFamily: "SF-Compact",
-    fontSize: 50,
+  static TextStyle maxMinTitleSmall = TextStyle(
+    fontFamily: "Ledger",
+    fontSize: 25,
+    color: WeatherAppStyle.conTextColor,
   );
 
+  static TextStyle maxMinTempLarge = TextStyle(
+    color: WeatherAppStyle.tempColor,
+    fontFamily: "SF-Compact",
+    fontSize: 70,
+  );
+
+  static TextStyle maxMinTempSmall = TextStyle(
+    color: WeatherAppStyle.tempColor,
+    fontFamily: "SF-Compact",
+    fontSize: 70,
+  );
   // Horizontal Tile Styles
   static TextStyle horListTitle =  TextStyle(
     color: WeatherAppStyle.title,

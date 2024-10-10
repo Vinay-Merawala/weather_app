@@ -39,7 +39,7 @@ class _WeatherAppState extends State<WeatherApp> {
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            if (constraints.maxWidth > 600) {
+            if (constraints.maxWidth > 800) {
               // Larger screen layout
               return SingleChildScrollView(
                 child: Padding(
@@ -47,20 +47,19 @@ class _WeatherAppState extends State<WeatherApp> {
                   child: Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
-                            flex: 1,
                             child: Column(
-                              children: [
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
                                 Location(width:  width, height: height),
                                 Date(width:  width, height: height),
                                 WeatherCondition(width:  width, height: height),
                               ]
                             ),
                           ),
+                          SizedBox(height: height - (height * 0.15)),
                           Expanded(
-                            flex: 1,
                             child: Column(
                               children: [
                                 CurTemp(width:  width, height: height),

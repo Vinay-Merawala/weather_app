@@ -22,16 +22,29 @@ class _CurTempState extends State<CurTemp> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.only(bottom: 40),
-      child: Center(
-        child: Text(
-          curTemp,
-          style: WeatherAppStyle.temp,
+    if(widget.width > 800) {
+      return Container(
+        height: widget.height/ 2 * 0.80,
+        child: Center(
+          child: Text(
+            curTemp,
+            style: WeatherAppStyle.tempLarge,
+          ),
         ),
-      ),
-    );
+      );
+    }else{
+      return Container(
+        height: widget.height/3 * 0.75,
+        width: MediaQuery.of(context).size.width,
+        margin: const EdgeInsets.only(bottom: 25),
+        child: Center(
+          child: Text(
+            curTemp,
+            style: WeatherAppStyle.tempSmall,
+          ),
+        ),
+      );
+    }
   }
 }
+

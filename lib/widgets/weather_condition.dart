@@ -21,12 +21,25 @@ class _WeatherConditionState extends State<WeatherCondition> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      child: Text(
-        weather,
-        style: WeatherAppStyle.weatherCondn,
-      ),
-    );
+    if(widget.width > 800){
+      return Container(
+        padding: const EdgeInsets.all(20),
+        child: Text(
+          weather,
+          style: WeatherAppStyle.weatherCondn,
+        ),
+      );
+    }
+    else{
+      return SizedBox(
+        height: widget.height/10,
+        child: Center(
+          child: Text(
+            weather,
+            style: WeatherAppStyle.weatherCondn,
+          ),
+        ),
+      );
+    }
   }
 }

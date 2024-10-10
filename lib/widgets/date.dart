@@ -24,10 +24,10 @@ class _DateState extends State<Date> {
 
   @override
   Widget build(BuildContext context) {
-    if(widget.width > 600) {
+    if(widget.width > 800) {
       return Container(
         width: widget.width/3,
-        height: 50,
+        height: widget.height/7,
         decoration: WeatherAppStyle.dateTitleTile,
         child: Center(
           child: Text(
@@ -38,8 +38,8 @@ class _DateState extends State<Date> {
       );
     }else{
       return Container(
-        height: 50,
-        width: widget.width - 100,
+        height: widget.height/15,
+        width: widget.width - (widget.width * 0.2 ),
         decoration: WeatherAppStyle.dateTitleTile,
         child: Center(
           child: Text(
