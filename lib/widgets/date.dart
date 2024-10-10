@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/Styles/WeatherAppStyle.dart';
+import 'package:weather_app/Styles/weather_app_style.dart';
 
 class Date extends StatefulWidget {
   final double width;

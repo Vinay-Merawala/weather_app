@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/widgets/weather_condition.dart';
 
 class WeatherAppStyle{
 

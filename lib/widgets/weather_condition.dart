@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/Styles/WeatherAppStyle.dart';
+import 'package:weather_app/Styles/weather_app_style.dart';
 
 class WeatherCondition extends StatefulWidget {
   final double width;
@@ -13,7 +13,7 @@ class WeatherCondition extends StatefulWidget {
 
 
   @override
-  _WeatherConditionState createState() => _WeatherConditionState();
+  State<WeatherCondition> createState() => _WeatherConditionState();
 }
 
 class _WeatherConditionState extends State<WeatherCondition> {

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:weather_app/widgets/temperature.dart';
 import 'package:weather_app/widgets/weather_condition.dart';
-import '../Styles/WeatherAppStyle.dart';
+import '../Styles/weather_app_style.dart';
 import 'date.dart';
 import 'horizontal_list_builder.dart';
 import 'location.dart';
@@ -21,6 +22,11 @@ class _WeatherAppState extends State<WeatherApp> {
 
   final Color color = WeatherAppStyle.themeColor;
 
+  @override
+  void initState(){
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +98,5 @@ class _WeatherAppState extends State<WeatherApp> {
         ),
       ),
     );
-    ;
   }
 }
