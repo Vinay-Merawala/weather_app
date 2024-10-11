@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/Styles/weather_app_style.dart';
+
+import '../services/bg.dart';
 
 class MaxMinTemp extends StatefulWidget {
   final double width;
@@ -16,11 +19,6 @@ class MaxMinTemp extends StatefulWidget {
 }
 
 class _MaxMinTempState extends State<MaxMinTemp> {
-
-  static const min = "24°";
-  static const max = "32°";
-
-  final Color textColor = Colors.pink;
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +41,19 @@ class _MaxMinTempState extends State<MaxMinTemp> {
                   ),
                 ),
 
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 15),
-                  child: Center(
-                    child: Text(
-                      max,
-                      style: WeatherAppStyle.maxMinTempLarge,
+                Consumer<WeatherAppBG>(
+                  builder: (context, weatherAppModel, child) =>
+
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 15),
+                    child: Center(
+                      child: Text(
+                        "${(weatherAppModel.maxTemps[0]).toInt()}",
+                        style: WeatherAppStyle.maxMinTempLarge,
+                      ),
                     ),
-                  ),
-                )
+                  )
+                ),
               ],
             ),
             Column(
@@ -68,14 +70,19 @@ class _MaxMinTempState extends State<MaxMinTemp> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 15),
-                  child: Center(
-                    child: Text(
-                      min,
-                      style: WeatherAppStyle.maxMinTempLarge,
+
+                Consumer<WeatherAppBG>(
+                  builder: (context, weatherAppModel, child) =>
+
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 15),
+                    child: Center(
+                      child: Text(
+                        "${(weatherAppModel.minTemps[0]).toInt()}",
+                        style: WeatherAppStyle.maxMinTempLarge,
+                      ),
                     ),
-                  ),
+                  )
                 )
               ],
             ),
@@ -88,27 +95,31 @@ class _MaxMinTempState extends State<MaxMinTemp> {
           children: [
             Column(
               children: [
-                Container(
-                  height: widget.height * 0.05,
-                  width: (widget.width/2 * 0.80) ,
-                  margin: const EdgeInsets.only(top: 20, right: 5),
-                  decoration: WeatherAppStyle.dateTitleTile,
-                  child: Center(
-                    child: Text(
-                      "Max temp",
-                      style: WeatherAppStyle.maxMinTitleSmall,
+                    Container(
+                      height: widget.height * 0.05,
+                      width: (widget.width/2 * 0.80) ,
+                      margin: const EdgeInsets.only(top: 20, right: 5),
+                      decoration: WeatherAppStyle.dateTitleTile,
+                      child: Center(
+                        child: Text(
+                          "Max temp",
+                          style: WeatherAppStyle.maxMinTitleSmall,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
 
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 15),
-                  child: Center(
-                    child: Text(
-                      max,
-                      style: WeatherAppStyle.maxMinTempSmall,
+                Consumer<WeatherAppBG>(
+                  builder: (context, weatherAppModel, child) =>
+
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 15),
+                    child: Center(
+                      child: Text(
+                        "${(weatherAppModel.maxTemps[0]).toInt()}",
+                       style: WeatherAppStyle.maxMinTempSmall,
+                      ),
                     ),
-                  ),
+                  )
                 )
               ],
             ),
@@ -126,14 +137,19 @@ class _MaxMinTempState extends State<MaxMinTemp> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 15),
-                  child: Center(
-                    child: Text(
-                      min,
-                      style: WeatherAppStyle.maxMinTempSmall,
+
+                Consumer<WeatherAppBG>(
+                  builder: (context, weatherAppModel, child) =>
+
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 15),
+                    child: Center(
+                      child: Text(
+                        "${(weatherAppModel.minTemps[0]).toInt()}",
+                        style: WeatherAppStyle.maxMinTempSmall,
+                      ),
                     ),
-                  ),
+                  )
                 )
               ],
             ),

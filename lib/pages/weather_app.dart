@@ -4,15 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:weather_app/widgets/temperature.dart';
 import 'package:weather_app/widgets/weather_condition.dart';
 import '../Styles/weather_app_style.dart';
-import 'date.dart';
-import 'horizontal_list_builder.dart';
-import 'location.dart';
-import 'max_min_temp.dart';
+import '../widgets/date.dart';
+import '../widgets/horizontal_list_builder.dart';
+import '../widgets/title.dart';
+import '../widgets/max_min_temp.dart';
 
 class WeatherApp extends StatefulWidget {
-  const WeatherApp({super.key, required this.title});
-
-  final String title;
+  const WeatherApp({super.key});
 
   @override
   State<WeatherApp> createState() => _WeatherAppState();
@@ -52,7 +50,7 @@ class _WeatherAppState extends State<WeatherApp> {
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                Location(width:  width, height: height),
+                                AppTitle(width:  width, height: height),
                                 Date(width:  width, height: height),
                                 WeatherCondition(width:  width, height: height),
                               ]
@@ -82,7 +80,7 @@ class _WeatherAppState extends State<WeatherApp> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Location(width:  width, height: height),
+                      AppTitle(width:  width, height: height),
                       Date(width:  width, height: height),
                       WeatherCondition(width:  width, height: height),
                       CurTemp(width:  width, height: height),

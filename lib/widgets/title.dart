@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/Styles/weather_app_style.dart';
 
-class Location extends StatefulWidget {
+class AppTitle extends StatefulWidget {
 
   final double width;
   final double height;
 
-  const Location({
+  const AppTitle({
     super.key,
     required this.width,
     required this.height,
   });
 
   @override
-  State<Location> createState() => _LocationState();
+  State<AppTitle> createState() => _AppTitleState();
 }
 
-class _LocationState extends State<Location> {
+class _AppTitleState extends State<AppTitle> {
 
-  static const location = "Trichy";
+  static const title = "Weather";
   @override
   Widget build(BuildContext context) {
     if(widget.width > 800) {
@@ -26,7 +26,7 @@ class _LocationState extends State<Location> {
         height: widget.height / 3,
         child: Center(
           child: Text(
-            location,
+            title,
             style: WeatherAppStyle.locTitleLarge,
           ),
         ),
@@ -36,7 +36,7 @@ class _LocationState extends State<Location> {
         padding: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom:15),
         child: Center(
           child: Text(
-            location,
+            title,
             style: WeatherAppStyle.locTitleSmall,
           ),
         ),

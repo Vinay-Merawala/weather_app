@@ -1,10 +1,14 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:weather_app/widgets/geolocator.dart';
-import 'package:weather_app/widgets/weather_app.dart';
+import 'package:provider/provider.dart';
+
+import 'package:weather_app/services/bg.dart';
+
+import 'package:weather_app/pages/loading.dart';
+import 'package:weather_app/pages/weather_app.dart';
 
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
 }
 
@@ -13,12 +17,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Weather App',
-      theme: ThemeData(
-        primaryColor: Colors.yellow,
+    return MultiProvider(
+      providers:[
+        ChangeNotifierProvider(create: (context) => WeatherAppBG() ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+         initialRoute: "/",
+         routes: {
+           '/': (context) => const Loading(),
+           '/home': (context) => const WeatherApp(),
+         }
       ),
-      home: const LocationWidget(),
     );
   }
 }
