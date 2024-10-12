@@ -26,7 +26,7 @@ class WeatherAppStyle{
   // Date Tile Styles
   static TextStyle dateLarge =  TextStyle(
     fontFamily: "Ledger",
-    fontSize: 25,
+    fontSize: 20,
     color: conTextColor,
   );
 

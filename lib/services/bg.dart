@@ -21,8 +21,7 @@ class WeatherAppBG extends ChangeNotifier{
   late int dayOfMonth;
   late String month;
 
-  bool _isLoading = true;
-  bool get isLoading => _isLoading;
+  bool isLoading = true;
 
   Future<void> fetchPosition() async {
     bool serviceEnabled;
@@ -50,9 +49,6 @@ class WeatherAppBG extends ChangeNotifier{
       Position currentPosition = await Geolocator.getCurrentPosition();
       latitude = currentPosition.latitude;
       longitude = currentPosition.longitude;
-
-      notifyListeners();
-
     }
     catch (e) {
       print("Caught Exception : $e" );
@@ -65,7 +61,7 @@ class WeatherAppBG extends ChangeNotifier{
 
     try{
       // get time info
-      Response response = await get(Uri.parse('https://api.open-meteo.com/v1/forecast?latitude=22.5626&longitude=88.363&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto')); // get and Response object in http module
+      Response response = await get(Uri.parse('https://api.open-meteo.com/v1/forecast?latitude=$latitude&longitude=$longitude&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto')); // get and Response object in http module
       Map data = jsonDecode(response.body); // jsonDecode in convert , for converting json string to map
 
       currentTemp = data["current"]["temperature_2m"];
@@ -74,9 +70,6 @@ class WeatherAppBG extends ChangeNotifier{
       maxTemps = data["daily"]["temperature_2m_max"].sublist(0,5);
       minTemps = data["daily"]["temperature_2m_min"].sublist(0,5);
       weatherCodes = data["daily"]["weather_code"].sublist(0,5);
-
-      _isLoading = false;
-      notifyListeners();
 
     }catch(e){
       print("caught error: $e");
@@ -89,18 +82,5 @@ class WeatherAppBG extends ChangeNotifier{
     dayOfMonth = now.day;
     month = DateFormat.MMMM().format(now);
 
-    notifyListeners();
-  }
-
-  Future<void> initializeWeatherApp() async {
-    _isLoading = true;
-    notifyListeners(); // Notify listeners that loading has started
-
-    await fetchPosition();
-    getTime();
-    await getWeather();
-
-    _isLoading = false;
-    notifyListeners(); // Notify listeners that the loading has completed
   }
 }

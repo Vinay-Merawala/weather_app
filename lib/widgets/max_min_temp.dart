@@ -48,7 +48,7 @@ class _MaxMinTempState extends State<MaxMinTemp> {
                     margin: const EdgeInsets.symmetric(vertical: 15),
                     child: Center(
                       child: Text(
-                        "${(weatherAppModel.maxTemps[0]).toInt()}",
+                        "${(weatherAppModel.maxTemps[0]).toInt()}°",
                         style: WeatherAppStyle.maxMinTempLarge,
                       ),
                     ),
@@ -78,7 +78,7 @@ class _MaxMinTempState extends State<MaxMinTemp> {
                     margin: const EdgeInsets.symmetric(vertical: 15),
                     child: Center(
                       child: Text(
-                        "${(weatherAppModel.minTemps[0]).toInt()}",
+                        "${(weatherAppModel.minTemps[0]).toInt()}°",
                         style: WeatherAppStyle.maxMinTempLarge,
                       ),
                     ),
@@ -115,7 +115,7 @@ class _MaxMinTempState extends State<MaxMinTemp> {
                     margin: const EdgeInsets.symmetric(vertical: 15),
                     child: Center(
                       child: Text(
-                        "${(weatherAppModel.maxTemps[0]).toInt()}",
+                        "${(weatherAppModel.maxTemps[0]).toInt()}°",
                        style: WeatherAppStyle.maxMinTempSmall,
                       ),
                     ),
@@ -145,7 +145,7 @@ class _MaxMinTempState extends State<MaxMinTemp> {
                     margin: const EdgeInsets.symmetric(vertical: 15),
                     child: Center(
                       child: Text(
-                        "${(weatherAppModel.minTemps[0]).toInt()}",
+                        "${(weatherAppModel.minTemps[0]).toInt()}°",
                         style: WeatherAppStyle.maxMinTempSmall,
                       ),
                     ),

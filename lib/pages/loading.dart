@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
-import '../services/bg.dart';
+import '../services/weather_app_initializer.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -13,47 +13,29 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  @override
-  void initState() {
-    super.initState();
-    Future.microtask(() {
-      final weatherProvider = Provider.of<WeatherAppBG>(context, listen: false);
-      weatherProvider.initializeWeatherApp().then((_) {
-        if (mounted) {
-          Navigator.pushReplacementNamed(context, '/home');
-        }
-      });
-    });
-  }
-
-  void setupWeatherApp() async {
-    WeatherAppBG loc = WeatherAppBG();
-    await loc.fetchPosition();
-    loc.getTime();
-    await loc.getWeather();
+  setUpWeatherApp() async {
+    final weatherAppInitializer = Provider.of<WeatherAppInitializer>(
+        context, listen: false);
+    await weatherAppInitializer.initializeWeatherApp();
     if (mounted) {
       Navigator.pushReplacementNamed(context, '/home');
     }
   }
 
+
+  @override
+  void initState() {
+    super.initState();
+    setUpWeatherApp();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.pinkAccent,
-      body: Center(
-        child: Consumer<WeatherAppBG>(
-          builder: (context, weatherProvider, child) {
-            if (weatherProvider.isLoading) {
-              // Show loading spinner while the data is being fetched
-              return const SpinKitRotatingCircle(
-                color: Colors.white,
-                size: 80.0,
-              );
-            } else {
-              return const Text("Data Loaded! Redirecting...");
-            }
-          },
-        ),
+      body: SpinKitRotatingCircle(
+        color: Colors.white,
+        size: 80.0,
       ),
     );
   }

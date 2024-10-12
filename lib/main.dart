@@ -6,6 +6,7 @@ import 'package:weather_app/services/bg.dart';
 
 import 'package:weather_app/pages/loading.dart';
 import 'package:weather_app/pages/weather_app.dart';
+import 'package:weather_app/services/weather_app_initializer.dart';
 
 
 Future<void> main() async {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers:[
-        ChangeNotifierProvider(create: (context) => WeatherAppBG() ),
+        ChangeNotifierProvider(create: (context) => WeatherAppBG()),
+        ChangeNotifierProvider(create: (context) => WeatherAppInitializer(Provider.of<WeatherAppBG>(context,listen: false))),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

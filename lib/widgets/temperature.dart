@@ -32,7 +32,7 @@ class _CurTempState extends State<CurTemp> {
             height: widget.height/ 2 * 0.80,
             child: Center(
                child: Text(
-                  "${(weatherAppModel.currentTemp).toInt()}",
+                  "${(weatherAppModel.currentTemp).toInt()}°",
                   style: WeatherAppStyle.tempLarge,
               ),
             ),
@@ -49,7 +49,7 @@ class _CurTempState extends State<CurTemp> {
             margin: const EdgeInsets.only(bottom: 25),
             child: Center(
               child: Text(
-                "${(weatherAppModel.currentTemp).toInt()}",
+                "${(weatherAppModel.currentTemp).toInt()}°",
                 style: WeatherAppStyle.tempSmall,
               ),
             ),
